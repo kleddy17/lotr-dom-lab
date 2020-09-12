@@ -59,20 +59,21 @@ const landArticle = document.createElement("article")
 
   //   2b. gives each land article an `id` tag of the corresponding land name
 landArticle.setAttribute("id", lands[i])
-const landHeader = document.createElement("h1")
-landHeader.innerText = lands[i]
+
  
 //   2c. includes an h1 with the name of the land inside each land article
- 
+ const landHeader = document.createElement("h1")
+landHeader.innerText = lands[i]
 //   2d. appends each land to the middle-earth section
  landArticle.appendChild(landHeader)
+
 // 3. append the section to the body of the DOM.
 
  middleEarth.appendChild(landArticle)
- document.querySelector('body').appendChild(middleEarth)
-}}
 
-
+}
+ document.body.appendChild(middleEarth)
+}
 
 
 
@@ -88,15 +89,19 @@ function makeHobbits() {
   console.log("2: makeHobbits");
 
   // display an `unordered list` of hobbits in the shire
-
+  const hobbitsList = document.createElement("ul")
   // give each hobbit a class of `hobbit`
-
-  // hint: create a 'ul' outside the loop into which to append the 'li's
-
-  // hint: get 'The-Shire' by using its id
-
+  for(let i = 0; i<hobbits.length; i++) {
+    const listing = document.createElement("li")
+    listing.classList.add("hobbit")
+    listing.innerText= hobbits[i]
+    hobbitsList.appendChild(listing)
+  }
+ document.getElementById("The-Shire").appendChild(hobbitsList)
 }
 
+// hint: create a 'ul' outside the loop into which to append the 'li's
+// hint: get 'The-Shire' by using its id
 // COMMIT YOUR WORK
 // The commit message should read: "Chapter 2 complete - Made the Hobbits".
 
